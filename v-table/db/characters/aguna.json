@@ -1,0 +1,74 @@
+{
+	"name" : "Агна",
+	"max_hp" : 26,
+	"cd"  : 11,
+	"color" : "#1b1e23",
+	"main_stats" : {
+		"str" : 10,
+		"dex" : 10,
+		"con" : 8,
+		"int" : 14,
+		"wis" : 16,
+		"cha" : 16
+	},
+	"mag_stat" : "cha",
+	"add_stats" : {
+		"stealth" : 2,
+		"arcana" : 4,
+		"religion" : 4,
+		"medicine" : 2,
+		"intimidation" : 4
+
+	},
+	"skills" : {
+		"texts" : {
+			"agnis" : {
+				"description" : "усилить спелл на 1к8, нанеся себе тот же урон"
+			},
+			"Obumbratio" : {
+				"description" : "в тени не двигаясь невидима"
+			},
+			"Visus Tenebrarum" : {
+				"description" : "слепое зрение 10 футов"
+			},
+			"Interstitium Aeternum" : {
+				"description" : "жизнь - понятие растяжимое"
+			}
+		},
+		"weapons" : {
+			"обсидиановый ритуальный клинок" : {
+				"mod" : "+4",
+				"dmg" : "2к4 + 3",
+				"cost" : 1
+			},
+			"Tentacula Tenebrarum" : {
+				"mod" : "+2",
+				"dmg" : "1k10",
+				"cost" : 2
+			}
+		},
+		"magic" : {
+			"0" : {
+				"slots" : -1,
+				"spells" : {
+					"и гаснет свет" : {"cost" : 1},
+					"теневая иллюзия" : {"cost" : 1}
+				}
+			},
+			"1" : {
+				"slots" : 1,
+				"spells" : {
+					"Sussurrus Tenebrae" : {"cost" : 2},
+					"Oculus Tenebrae" : {"cost" : 2}
+				}
+			},
+			"2" : {
+				"slots" : 4,
+				"spells" : {
+					"слово силы : Prostratio" : {"cost" : 3},
+					"танец теней" : {"cost" : 0}
+				}
+			}
+		}
+	}
+}

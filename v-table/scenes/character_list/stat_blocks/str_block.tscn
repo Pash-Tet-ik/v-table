@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://epierhvlr6mk"]
+
+[ext_resource type="PackedScene" uid="uid://tkltf4qb6iab" path="res://scenes/character_list/stat_blocks/base_stat_block.tscn" id="1_bmlau"]
+
+[node name="str_block" instance=ExtResource("1_bmlau")]
+offset_right = 176.0
+offset_bottom = 69.0
+
+[node name="name" parent="body/main" index="0"]
+text = "СИЛА"
+
+[node name="HSeparator" parent="body" index="1"]
+visible = true
+
+[node name="athletics" type="HBoxContainer" parent="body/additional" index="0"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/athletics" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/athletics" index="1"]
+layout_mode = 2
+text = "атлетика"
+
+[node name="filler2" type="Control" parent="body/additional/athletics" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/athletics" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/athletics" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2

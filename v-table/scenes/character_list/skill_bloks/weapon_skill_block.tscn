@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjmldwsbkaipr"]
+
+[ext_resource type="PackedScene" uid="uid://cyosea6robf13" path="res://scenes/character_list/skill_bloks/base_skill_block.tscn" id="1_rf0pn"]
+[ext_resource type="Theme" uid="uid://c13ifcoovlqfi" path="res://assets/themes/char_list.tres" id="2_s22pg"]
+[ext_resource type="Script" uid="uid://bip60ka4jbjtp" path="res://scenes/character_list/skill_bloks/weapon_skill_block.gd" id="3_01hnf"]
+[ext_resource type="Theme" uid="uid://bx2vf0reasapg" path="res://assets/themes/counter.tres" id="4_ptcrs"]
+
+[node name="skill_block" instance=ExtResource("1_rf0pn")]
+theme = ExtResource("2_s22pg")
+script = ExtResource("3_01hnf")
+
+[node name="name" parent="body/caption" index="0"]
+custom_minimum_size = Vector2(209, 0)
+
+[node name="counter" type="SpinBox" parent="body/caption" index="1"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_ptcrs")
+alignment = 1
+
+[node name="HSeparator" parent="body" index="1"]
+visible = true
+
+[node name="Control" type="Control" parent="body/description" index="0"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="body/description" index="1"]
+layout_mode = 2
+
+[node name="filler2" type="Control" parent="body/description/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="mod_label" type="Label" parent="body/description/HBoxContainer" index="1"]
+layout_mode = 2
+text = "бонус"
+
+[node name="mod" type="Button" parent="body/description/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "+XX"
+
+[node name="filler" type="Control" parent="body/description/HBoxContainer" index="3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="dmg_label" type="Label" parent="body/description/HBoxContainer" index="4"]
+layout_mode = 2
+text = "урон"
+
+[node name="dmg" type="Button" parent="body/description/HBoxContainer" index="5"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "XкXX + X"
+
+[node name="filler3" type="Control" parent="body/description/HBoxContainer" index="6"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="cont" type="HBoxContainer" parent="body/description" index="2"]
+visible = false
+layout_mode = 2
+
+[node name="filler2" type="Control" parent="body/description/cont" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="text" type="Label" parent="body/description/cont" index="1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="filler3" type="Control" parent="body/description/cont" index="2"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="body/description" index="3"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2

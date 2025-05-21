@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://r0ylvxyk204s"]
+
+[ext_resource type="PackedScene" uid="uid://tkltf4qb6iab" path="res://scenes/character_list/stat_blocks/base_stat_block.tscn" id="1_hmkr6"]
+
+[node name="stat_block" instance=ExtResource("1_hmkr6")]
+
+[node name="name" parent="body/main" index="0"]
+text = "ХАРИЗМА"
+
+[node name="HSeparator" parent="body" index="1"]
+visible = true
+
+[node name="performance" type="HBoxContainer" parent="body/additional" index="0"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/performance" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/performance" index="1"]
+layout_mode = 2
+text = "выступление"
+
+[node name="filler2" type="Control" parent="body/additional/performance" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/performance" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/performance" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="intimidation" type="HBoxContainer" parent="body/additional" index="1"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/intimidation" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/intimidation" index="1"]
+layout_mode = 2
+text = "запугивание"
+
+[node name="filler2" type="Control" parent="body/additional/intimidation" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/intimidation" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/intimidation" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="deception" type="HBoxContainer" parent="body/additional" index="2"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/deception" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/deception" index="1"]
+layout_mode = 2
+text = "обман"
+
+[node name="filler2" type="Control" parent="body/additional/deception" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/deception" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/deception" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="persuasion" type="HBoxContainer" parent="body/additional" index="3"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/persuasion" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/persuasion" index="1"]
+layout_mode = 2
+text = "убеждение"
+
+[node name="filler2" type="Control" parent="body/additional/persuasion" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/persuasion" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/persuasion" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2

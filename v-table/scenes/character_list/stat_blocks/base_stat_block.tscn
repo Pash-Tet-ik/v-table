@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://tkltf4qb6iab"]
+
+[ext_resource type="Theme" uid="uid://c13ifcoovlqfi" path="res://assets/themes/char_list.tres" id="1_f150o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqxi3"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.764706, 0.647059, 0.54902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrruk"]
+bg_color = Color(0.505882, 0.32549, 0.141176, 1)
+border_width_top = 1
+border_color = Color(0.505882, 0.32549, 0.141176, 1)
+
+[node name="stat_block" type="PanelContainer"]
+custom_minimum_size = Vector2(307, 0)
+offset_right = 307.0
+offset_bottom = 34.0
+theme = ExtResource("1_f150o")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqxi3")
+
+[node name="body" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="main" type="HBoxContainer" parent="body"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/main"]
+layout_mode = 2
+text = "НАЗВАНИЕ"
+
+[node name="filler" type="Control" parent="body/main"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/main"]
+layout_mode = 2
+text = "+X"
+
+[node name="var" type="Label" parent="body/main"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "(xx)"
+
+[node name="HSeparator" type="HSeparator" parent="body"]
+visible = false
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_wrruk")
+
+[node name="additional" type="VBoxContainer" parent="body"]
+layout_mode = 2
+theme_override_constants/separation = -1

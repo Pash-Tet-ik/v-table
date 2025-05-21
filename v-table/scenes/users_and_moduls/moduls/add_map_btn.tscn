@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cebg3l3i6foux"]
+
+[ext_resource type="Script" uid="uid://hb4und55qc37" path="res://scenes/users_and_moduls/moduls/add_map_btn.gd" id="1_6rrdh"]
+
+[node name="add_map_btn" type="Button"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 43.0
+offset_bottom = 15.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "map"
+script = ExtResource("1_6rrdh")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="mouse_entered" from="FileDialog" to="." method="_on_file_dialog_mouse_entered"]
+[connection signal="mouse_exited" from="FileDialog" to="." method="_on_file_dialog_mouse_exited"]

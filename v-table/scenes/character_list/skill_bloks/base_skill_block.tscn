@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyosea6robf13"]
+
+[sub_resource type="Theme" id="Theme_khvpv"]
+Label/colors/font_color = Color(0.505882, 0.32549, 0.141176, 1)
+Label/font_sizes/font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofpls"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.764706, 0.647059, 0.54902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdiuw"]
+bg_color = Color(0.505882, 0.32549, 0.141176, 1)
+border_width_top = 1
+border_color = Color(0.505882, 0.32549, 0.141176, 1)
+
+[node name="skill_block" type="PanelContainer"]
+custom_minimum_size = Vector2(307, 0)
+offset_right = 307.0
+offset_bottom = 35.0
+theme = SubResource("Theme_khvpv")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ofpls")
+
+[node name="body" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="caption" type="HBoxContainer" parent="body"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/caption"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = -11
+text = "название"
+autowrap_mode = 3
+
+[node name="cost" type="Label" parent="body/caption"]
+layout_mode = 2
+size_flags_horizontal = 10
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="body"]
+visible = false
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_sdiuw")
+
+[node name="description" type="VBoxContainer" parent="body"]
+layout_mode = 2
+theme_override_constants/separation = -1

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm44fv77ln4m0"]
+
+[ext_resource type="PackedScene" uid="uid://tkltf4qb6iab" path="res://scenes/character_list/stat_blocks/base_stat_block.tscn" id="1_y4d3v"]
+
+[node name="con_block" instance=ExtResource("1_y4d3v")]
+
+[node name="name" parent="body/main" index="0"]
+text = "ТЕЛОСЛОЖЕНИЕ"

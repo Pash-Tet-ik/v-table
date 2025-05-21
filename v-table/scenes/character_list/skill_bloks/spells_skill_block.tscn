@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dscfvyf72hqmd"]
+
+[ext_resource type="PackedScene" uid="uid://cyosea6robf13" path="res://scenes/character_list/skill_bloks/base_skill_block.tscn" id="1_jgjf5"]
+[ext_resource type="Script" uid="uid://brtjos2s36lj5" path="res://scenes/character_list/skill_bloks/spells_skill_block.gd" id="2_cju55"]
+[ext_resource type="Theme" uid="uid://bx2vf0reasapg" path="res://assets/themes/counter.tres" id="3_bgkpm"]
+
+[node name="skill_block" instance=ExtResource("1_jgjf5")]
+script = ExtResource("2_cju55")
+
+[node name="name" parent="body/caption" index="0"]
+custom_minimum_size = Vector2(235, 0)
+
+[node name="cost" parent="body/caption" index="1"]
+visible = false
+
+[node name="counter" type="SpinBox" parent="body/caption" index="2"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = ExtResource("3_bgkpm")
+theme_type_variation = &"counter"
+max_value = 99.0
+alignment = 1
+
+[node name="HSeparator" parent="body" index="1"]
+visible = true
+
+[node name="filler" type="Control" parent="body/description" index="0"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="filler2" type="Control" parent="body/description" index="1"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2

@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://btxodl2krofqu"]
+
+[ext_resource type="Theme" uid="uid://c8l1hasoxldul" path="res://assets/themes/ui.tres" id="1_shrpd"]
+[ext_resource type="Script" uid="uid://064oywfcoauu" path="res://scenes/users_and_moduls/moduls/add_roulette.gd" id="2_shrpd"]
+[ext_resource type="Theme" uid="uid://b0ddqt0gevqf8" path="res://assets/themes/roulette.tres" id="3_67pu4"]
+
+[node name="add_roulette" type="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_shrpd")
+script = ExtResource("2_shrpd")
+
+[node name="d4" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "d4"
+
+[node name="d6" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "d6"
+
+[node name="d8" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "d8"
+
+[node name="d10" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "d10
+"
+
+[node name="d12" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "d12
+"
+
+[node name="d20" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "d20"
+
+[node name="open" type="Button" parent="."]
+layout_mode = 2
+text = "dise"
+metadata/_edit_use_anchors_ = true
+
+[node name="throw" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "throw"
+
+[node name="cancel" type="Button" parent="."]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_67pu4")
+text = "cancel"
+
+[connection signal="pressed" from="open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="throw" to="." method="_on_throw_pressed"]
+[connection signal="pressed" from="cancel" to="." method="_on_cancel_pressed"]

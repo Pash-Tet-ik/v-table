@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg8w2ia2irj1b"]
+
+[ext_resource type="Script" uid="uid://dy2ooakmwuc1q" path="res://scenes/menu.gd" id="1_yqeox"]
+[ext_resource type="Theme" uid="uid://c8l1hasoxldul" path="res://assets/themes/ui.tres" id="2_vjb58"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
+bg_color = Color(0.913725, 0.866667, 0.831373, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_yqeox")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_vjb58")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 100
+
+[node name="main_cont" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="panel_cont" type="PanelContainer" parent="MarginContainer/main_cont"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_con2f")
+
+[node name="status" type="Label" parent="MarginContainer/main_cont/panel_cont"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "чтобы увеличить челен нужно ..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="characters" type="Button" parent="MarginContainer/main_cont"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "characters"
+
+[node name="ip" type="LineEdit" parent="MarginContainer/main_cont"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+placeholder_text = "ip"
+alignment = 1
+
+[node name="port_name" type="LineEdit" parent="MarginContainer/main_cont"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+placeholder_text = "port"
+alignment = 1
+
+[node name="inputs" type="HBoxContainer" parent="MarginContainer/main_cont"]
+layout_mode = 2
+
+[node name="connect_btn" type="Button" parent="MarginContainer/main_cont/inputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "connect"
+
+[node name="host_btn" type="Button" parent="MarginContainer/main_cont/inputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "host"
+
+[connection signal="pressed" from="MarginContainer/main_cont/characters" to="." method="_on_characters_pressed"]
+[connection signal="pressed" from="MarginContainer/main_cont/inputs/connect_btn" to="." method="_on_connect_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/main_cont/inputs/host_btn" to="." method="_on_host_btn_pressed"]

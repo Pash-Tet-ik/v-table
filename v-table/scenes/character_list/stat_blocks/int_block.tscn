@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0fmiokl32swf"]
+
+[ext_resource type="PackedScene" uid="uid://tkltf4qb6iab" path="res://scenes/character_list/stat_blocks/base_stat_block.tscn" id="1_ogv7f"]
+
+[node name="int_block" instance=ExtResource("1_ogv7f")]
+
+[node name="name" parent="body/main" index="0"]
+text = "ИНТЕЛЛЕКТ"
+
+[node name="HSeparator" parent="body" index="1"]
+visible = true
+
+[node name="investigation" type="HBoxContainer" parent="body/additional" index="0"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/investigation" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/investigation" index="1"]
+layout_mode = 2
+text = "анализ"
+
+[node name="filler2" type="Control" parent="body/additional/investigation" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/investigation" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/investigation" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="history" type="HBoxContainer" parent="body/additional" index="1"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/history" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/history" index="1"]
+layout_mode = 2
+text = "история"
+
+[node name="filler2" type="Control" parent="body/additional/history" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/history" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/history" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="arcana" type="HBoxContainer" parent="body/additional" index="2"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/arcana" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/arcana" index="1"]
+layout_mode = 2
+text = "магия"
+
+[node name="filler2" type="Control" parent="body/additional/arcana" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/arcana" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/arcana" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="nature" type="HBoxContainer" parent="body/additional" index="3"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/nature" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/nature" index="1"]
+layout_mode = 2
+text = "природа"
+
+[node name="filler2" type="Control" parent="body/additional/nature" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/nature" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/nature" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="religion" type="HBoxContainer" parent="body/additional" index="4"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/religion" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/religion" index="1"]
+layout_mode = 2
+text = "религия"
+
+[node name="filler2" type="Control" parent="body/additional/religion" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/religion" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/religion" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2

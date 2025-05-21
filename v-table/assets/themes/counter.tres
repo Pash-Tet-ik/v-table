@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bx2vf0reasapg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah0ug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l762"]
+bg_color = Color(0.913725, 0.866667, 0.831373, 1)
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb2x0"]
+bg_color = Color(0.913725, 0.866667, 0.831373, 1)
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+LineEdit/colors/caret_color = Color(0.541176, 0.368627, 0.219608, 1)
+LineEdit/colors/font_color = Color(0.541176, 0.368627, 0.219608, 1)
+LineEdit/colors/font_uneditable_color = Color(0.541176, 0.368627, 0.219608, 1)
+LineEdit/constants/minimum_character_width = 2
+LineEdit/font_sizes/font_size = 16
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_ah0ug")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_7l762")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_bb2x0")
+SpinBox/colors/down_disabled_icon_modulate = Color(0.639216, 0.486275, 0.364706, 1)
+SpinBox/colors/down_hover_icon_modulate = Color(0.541176, 0.368627, 0.219608, 1)
+SpinBox/colors/down_icon_modulate = Color(0.541176, 0.368627, 0.219608, 1)
+SpinBox/colors/down_pressed_icon_modulate = Color(0.541176, 0.368627, 0.219608, 1)
+SpinBox/colors/up_disabled_icon_modulate = Color(0.639216, 0.486275, 0.364706, 1)
+SpinBox/colors/up_hover_icon_modulate = Color(0.541176, 0.368627, 0.219608, 1)
+SpinBox/colors/up_icon_modulate = Color(0.541176, 0.368627, 0.219608, 1)
+SpinBox/colors/up_pressed_icon_modulate = Color(0.541176, 0.368627, 0.219608, 1)

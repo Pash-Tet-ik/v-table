@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctcdb5ca4i67q"]
+
+[ext_resource type="Theme" uid="uid://c13ifcoovlqfi" path="res://assets/themes/char_list.tres" id="1_i8kuu"]
+[ext_resource type="Script" uid="uid://d2ih3xqu8grga" path="res://scenes/character_list/skill_bloks/spell_description.gd" id="2_tecy8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tecy8"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.764706, 0.647059, 0.54902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k0er"]
+bg_color = Color(0.505882, 0.32549, 0.141176, 1)
+border_width_top = 1
+border_color = Color(0.505882, 0.32549, 0.141176, 1)
+
+[node name="SpellDescription" type="PanelContainer"]
+offset_right = 350.0
+offset_bottom = 69.0
+theme = ExtResource("1_i8kuu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tecy8")
+script = ExtResource("2_tecy8")
+
+[node name="body" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="caption" type="HBoxContainer" parent="body"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/caption"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = -11
+theme_override_font_sizes/font_size = 24
+text = "название"
+autowrap_mode = 3
+
+[node name="cost" type="Label" parent="body/caption"]
+layout_mode = 2
+size_flags_horizontal = 10
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="body/caption"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "×"
+
+[node name="HSeparator" type="HSeparator" parent="body"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_1k0er")
+
+[node name="description" type="VBoxContainer" parent="body"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="text" type="Label" parent="body/description"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = -5
+autowrap_mode = 3
+
+[node name="distance" type="Label" parent="body/description"]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="body/caption/Button" to="." method="_on_button_pressed"]

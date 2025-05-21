@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://ncscsofmnf40"]
+
+[ext_resource type="Theme" uid="uid://c8l1hasoxldul" path="res://assets/themes/ui.tres" id="1_fpo1v"]
+[ext_resource type="Script" uid="uid://dxibpupamjn1n" path="res://scenes/users_and_moduls/moduls/settings.gd" id="2_fpo1v"]
+
+[sub_resource type="Theme" id="Theme_6dyaj"]
+Label/font_sizes/font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cpub"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.764706, 0.647059, 0.54902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5ne6"]
+bg_color = Color(0.505882, 0.32549, 0.141176, 1)
+border_width_top = 1
+border_color = Color(0.505882, 0.32549, 0.141176, 1)
+
+[node name="settings" type="VBoxContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme = ExtResource("1_fpo1v")
+script = ExtResource("2_fpo1v")
+
+[node name="open" type="Button" parent="."]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme = SubResource("Theme_6dyaj")
+text = "⛭"
+
+[node name="close" type="Button" parent="."]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "close"
+
+[node name="main" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="volume" type="PanelContainer" parent="main"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3cpub")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="main/volume"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="header" type="Label" parent="main/volume/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "VOLUME"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="main/volume/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_q5ne6")
+
+[node name="master" type="Label" parent="main/volume/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "master"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="main/volume/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.02
+
+[node name="exit" type="Button" parent="main"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "exit
+"
+
+[connection signal="pressed" from="open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
+[connection signal="value_changed" from="main/volume/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="main/exit" to="." method="_on_exit_pressed"]

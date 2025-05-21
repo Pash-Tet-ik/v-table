@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyy5nb1aw8xm7"]
+
+[ext_resource type="PackedScene" uid="uid://tkltf4qb6iab" path="res://scenes/character_list/stat_blocks/base_stat_block.tscn" id="1_brwxh"]
+
+[node name="dex_block" instance=ExtResource("1_brwxh")]
+
+[node name="name" parent="body/main" index="0"]
+text = "ЛОВКОСТЬ"
+
+[node name="HSeparator" parent="body" index="1"]
+visible = true
+
+[node name="acrobatics" type="HBoxContainer" parent="body/additional" index="0"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/acrobatics" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/acrobatics" index="1"]
+layout_mode = 2
+text = "акробатика"
+
+[node name="filler2" type="Control" parent="body/additional/acrobatics" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/acrobatics" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/acrobatics" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="sleight_of_hand" type="HBoxContainer" parent="body/additional" index="1"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/sleight_of_hand" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/sleight_of_hand" index="1"]
+layout_mode = 2
+text = "ловкость рук"
+
+[node name="filler2" type="Control" parent="body/additional/sleight_of_hand" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/sleight_of_hand" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/sleight_of_hand" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="stealth" type="HBoxContainer" parent="body/additional" index="2"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/stealth" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/stealth" index="1"]
+layout_mode = 2
+text = "скрытность"
+
+[node name="filler2" type="Control" parent="body/additional/stealth" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/stealth" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/stealth" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2

@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=3 uid="uid://wx1rfeia8mph"]
+
+[ext_resource type="PackedScene" uid="uid://tkltf4qb6iab" path="res://scenes/character_list/stat_blocks/base_stat_block.tscn" id="1_6pb6l"]
+
+[node name="wis_block" instance=ExtResource("1_6pb6l")]
+
+[node name="name" parent="body/main" index="0"]
+text = "МУДРОСТЬ"
+
+[node name="HSeparator" parent="body" index="1"]
+visible = true
+
+[node name="perception" type="HBoxContainer" parent="body/additional" index="0"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/perception" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/perception" index="1"]
+layout_mode = 2
+text = "восприятие"
+
+[node name="filler2" type="Control" parent="body/additional/perception" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/perception" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/perception" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="survival" type="HBoxContainer" parent="body/additional" index="1"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/survival" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/survival" index="1"]
+layout_mode = 2
+text = "выживание"
+
+[node name="filler2" type="Control" parent="body/additional/survival" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/survival" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/survival" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="medicine" type="HBoxContainer" parent="body/additional" index="2"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/medicine" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/medicine" index="1"]
+layout_mode = 2
+text = "медицина"
+
+[node name="filler2" type="Control" parent="body/additional/medicine" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/medicine" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/medicine" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="insight" type="HBoxContainer" parent="body/additional" index="3"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/insight" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/insight" index="1"]
+layout_mode = 2
+text = "проницательность"
+
+[node name="filler2" type="Control" parent="body/additional/insight" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/insight" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/insight" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="animal_handling" type="HBoxContainer" parent="body/additional" index="4"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="body/additional/animal_handling" index="0"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="body/additional/animal_handling" index="1"]
+layout_mode = 2
+text = "уход за животными"
+
+[node name="filler2" type="Control" parent="body/additional/animal_handling" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mod" type="Label" parent="body/additional/animal_handling" index="3"]
+layout_mode = 2
+text = "+X"
+
+[node name="filler3" type="Control" parent="body/additional/animal_handling" index="4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2

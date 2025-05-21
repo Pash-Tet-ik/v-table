@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://4oamkxi0luie"]
+
+[ext_resource type="Script" uid="uid://6yn1jyqm005j" path="res://scenes/admin.gd" id="1_aovtl"]
+
+[node name="Admin" type="Node2D"]
+script = ExtResource("1_aovtl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -122.0
+offset_right = 228.0
+grow_vertical = 0
+text = "token"
+metadata/_edit_use_anchors_ = true
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="canceled" from="FileDialog" to="." method="_on_file_dialog_canceled"]
+[connection signal="confirmed" from="FileDialog" to="." method="_on_file_dialog_confirmed"]

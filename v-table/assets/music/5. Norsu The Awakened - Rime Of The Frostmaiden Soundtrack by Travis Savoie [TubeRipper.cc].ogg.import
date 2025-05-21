@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjym58atnwdop"
+path="res://.godot/imported/5. Norsu The Awakened - Rime Of The Frostmaiden Soundtrack by Travis Savoie [TubeRipper.cc].ogg-22322caac4cb7f488e7a8ddb103e547f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/5. Norsu The Awakened - Rime Of The Frostmaiden Soundtrack by Travis Savoie [TubeRipper.cc].ogg"
+dest_files=["res://.godot/imported/5. Norsu The Awakened - Rime Of The Frostmaiden Soundtrack by Travis Savoie [TubeRipper.cc].ogg-22322caac4cb7f488e7a8ddb103e547f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgya10gpidfa1"]
+
+[ext_resource type="Script" uid="uid://bwossnn48ahxr" path="res://scenes/users_and_moduls/moduls/character_selection.gd" id="1_6ujqe"]
+[ext_resource type="Theme" uid="uid://c8l1hasoxldul" path="res://assets/themes/ui.tres" id="1_yk6il"]
+
+[node name="CharacterSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yk6il")
+script = ExtResource("1_6ujqe")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3

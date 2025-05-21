@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://llumfkyy2dlb"]
+
+[ext_resource type="Script" uid="uid://ckwcf4af0wow7" path="res://scenes/users_and_moduls/user.gd" id="1_21nsi"]
+[ext_resource type="PackedScene" uid="uid://ncscsofmnf40" path="res://scenes/users_and_moduls/moduls/settings.tscn" id="2_5i58t"]
+
+[node name="User" type="Node2D"]
+script = ExtResource("1_21nsi")
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="settings" parent="ui" instance=ExtResource("2_5i58t")]
+
+[node name="info_box" type="VBoxContainer" parent="ui"]
+offset_right = 40.0
+offset_bottom = 40.0

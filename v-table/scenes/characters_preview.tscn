@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0vnw5xfmv6hh"]
+
+[ext_resource type="Script" uid="uid://cn6gsbt1wsl5b" path="res://scenes/characters_preview.gd" id="1_k3f51"]
+[ext_resource type="PackedScene" uid="uid://dgya10gpidfa1" path="res://scenes/users_and_moduls/moduls/character_selection.tscn" id="2_lesvq"]
+[ext_resource type="Theme" uid="uid://c8l1hasoxldul" path="res://assets/themes/ui.tres" id="3_lesvq"]
+
+[node name="characters_preview" type="Node2D"]
+script = ExtResource("1_k3f51")
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="CharacterSelection" parent="ui" instance=ExtResource("2_lesvq")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui"]
+custom_minimum_size = Vector2(67, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 138.0
+grow_horizontal = 0
+
+[node name="close" type="Button" parent="ui/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_lesvq")
+text = "×"
+
+[node name="refresh" type="Button" parent="ui/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_lesvq")
+text = "⭯"
+
+[node name="info_box" type="VBoxContainer" parent="ui"]
+offset_left = 325.0
+offset_top = 5.0
+offset_right = 325.0
+offset_bottom = 5.0
+
+[connection signal="pressed" from="ui/VBoxContainer/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="ui/VBoxContainer/refresh" to="." method="_on_refresh_pressed"]

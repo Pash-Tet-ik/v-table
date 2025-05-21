@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdd0ret3xw7bm"]
+
+[ext_resource type="Script" uid="uid://b2ht4p05pl6vc" path="res://test/test_field.gd" id="1_ei8pv"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_i5sas"]
+
+[node name="test_field" type="Node2D"]
+script = ExtResource("1_ei8pv")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_i5sas")
+
+[node name="SpinBox" type="SpinBox" parent="."]
+offset_right = 86.5625
+offset_bottom = 31.0

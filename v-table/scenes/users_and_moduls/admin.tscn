@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgpotrei02y8x"]
+
+[ext_resource type="PackedScene" uid="uid://llumfkyy2dlb" path="res://scenes/users_and_moduls/user.tscn" id="1_ycp2a"]
+[ext_resource type="PackedScene" uid="uid://d3jpwxqt41poh" path="res://scenes/users_and_moduls/moduls/add_token.tscn" id="2_5m1yo"]
+[ext_resource type="Script" uid="uid://bys10rxc6gnxb" path="res://scenes/users_and_moduls/admin.gd" id="2_thh21"]
+[ext_resource type="PackedScene" uid="uid://btxodl2krofqu" path="res://scenes/users_and_moduls/moduls/add_roulette.tscn" id="3_thh21"]
+[ext_resource type="Theme" uid="uid://c8l1hasoxldul" path="res://assets/themes/ui.tres" id="4_fbh5j"]
+[ext_resource type="PackedScene" uid="uid://cebg3l3i6foux" path="res://scenes/users_and_moduls/moduls/add_map_btn.tscn" id="5_thh21"]
+[ext_resource type="PackedScene" uid="uid://dgw4a0lsms4gi" path="res://scenes/users_and_moduls/moduls/add_musik.tscn" id="6_ipdv1"]
+[ext_resource type="PackedScene" uid="uid://cauaaqd2su05j" path="res://scenes/users_and_moduls/moduls/char_block_admin.tscn" id="8_qo4be"]
+
+[node name="User" instance=ExtResource("1_ycp2a")]
+script = ExtResource("2_thh21")
+
+[node name="add_roulette" parent="ui" index="0" instance=ExtResource("3_thh21")]
+
+[node name="left_bot_box" type="VBoxContainer" parent="ui" index="1"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -154.0
+offset_right = 142.0
+grow_vertical = 0
+theme = ExtResource("4_fbh5j")
+
+[node name="add_map_btn" parent="ui/left_bot_box" index="0" instance=ExtResource("5_thh21")]
+layout_mode = 2
+
+[node name="add_token_btn" parent="ui/left_bot_box" index="1" instance=ExtResource("2_5m1yo")]
+layout_mode = 2
+
+[node name="add_musik_btn" parent="ui/left_bot_box" index="2" instance=ExtResource("6_ipdv1")]
+layout_mode = 2
+
+[node name="info_box" parent="ui" index="3"]
+offset_left = 369.0
+offset_top = 5.0
+offset_right = 409.0
+offset_bottom = 45.0
+
+[node name="char_block_admin" parent="ui" index="4" instance=ExtResource("8_qo4be")]

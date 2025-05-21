@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://yk13f0ri6u6t"]
+
+[ext_resource type="PackedScene" uid="uid://llumfkyy2dlb" path="res://scenes/users_and_moduls/user.tscn" id="1_u0et3"]
+[ext_resource type="Script" uid="uid://m5lylh4643c" path="res://scenes/users_and_moduls/player.gd" id="2_jil5g"]
+[ext_resource type="PackedScene" uid="uid://btxodl2krofqu" path="res://scenes/users_and_moduls/moduls/add_roulette.tscn" id="3_go0o5"]
+[ext_resource type="PackedScene" uid="uid://dgya10gpidfa1" path="res://scenes/users_and_moduls/moduls/character_selection.tscn" id="4_go0o5"]
+[ext_resource type="PackedScene" uid="uid://bavjk131m66or" path="res://scenes/users_and_moduls/moduls/character_block.tscn" id="5_yqfs2"]
+
+[node name="User" instance=ExtResource("1_u0et3")]
+script = ExtResource("2_jil5g")
+
+[node name="CharacterSelection" parent="ui" index="0" instance=ExtResource("4_go0o5")]
+
+[node name="add_roulette" parent="ui" index="1" instance=ExtResource("3_go0o5")]
+visible = false
+
+[node name="info_box" parent="ui" index="3"]
+offset_left = 369.0
+offset_top = 5.0
+offset_right = 409.0
+offset_bottom = 45.0
+
+[node name="CharacterBlock" parent="ui" index="4" instance=ExtResource("5_yqfs2")]
+visible = false

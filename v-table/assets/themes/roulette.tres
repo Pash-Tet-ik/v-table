@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b0ddqt0gevqf8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk60g"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.498039, 0.498039, 0.498039, 1)
+corner_detail = 5
+
+[resource]
+Label/colors/font_color = Color(0.780865, 0.826614, 0.849857, 1)
+Label/font_sizes/font_size = 32
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_mk60g")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgw4a0lsms4gi"]
+
+[ext_resource type="Script" uid="uid://ci600gnjms4gm" path="res://scenes/users_and_moduls/moduls/add_musik.gd" id="1_0xcb7"]
+[ext_resource type="Theme" uid="uid://b4h1f8ki5eiea" path="res://assets/themes/filler.tres" id="1_i5xfc"]
+
+[node name="add_musik" type="Button"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+offset_right = 149.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "musik"
+script = ExtResource("1_0xcb7")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+size = Vector2i(480, 640)
+mouse_passthrough_polygon = PackedVector2Array(0, 0, 640, 0, 640, 360, 0, 360)
+theme = ExtResource("1_i5xfc")
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://assets/music"
+filters = PackedStringArray("*.import")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="mouse_entered" from="FileDialog" to="." method="_on_file_dialog_mouse_entered"]
+[connection signal="mouse_exited" from="FileDialog" to="." method="_on_file_dialog_mouse_exited"]

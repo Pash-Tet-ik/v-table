@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://cenagl3eg21rn"]
+
+[ext_resource type="Theme" uid="uid://c13ifcoovlqfi" path="res://assets/themes/char_list.tres" id="1_cs51n"]
+[ext_resource type="Script" uid="uid://demwqucvxtptt" path="res://scenes/character_list/character_list.gd" id="2_8yjg1"]
+[ext_resource type="PackedScene" uid="uid://ddokarak4mluu" path="res://scenes/character_list/main_block.tscn" id="3_503vl"]
+[ext_resource type="PackedScene" uid="uid://epierhvlr6mk" path="res://scenes/character_list/stat_blocks/str_block.tscn" id="4_hp8dl"]
+[ext_resource type="PackedScene" uid="uid://bm44fv77ln4m0" path="res://scenes/character_list/stat_blocks/con_block.tscn" id="5_vdtvd"]
+[ext_resource type="PackedScene" uid="uid://dyy5nb1aw8xm7" path="res://scenes/character_list/stat_blocks/dex_block.tscn" id="6_322lr"]
+[ext_resource type="PackedScene" uid="uid://d0fmiokl32swf" path="res://scenes/character_list/stat_blocks/int_block.tscn" id="7_dw4ax"]
+[ext_resource type="PackedScene" uid="uid://wx1rfeia8mph" path="res://scenes/character_list/stat_blocks/wis_block.tscn" id="8_kadrw"]
+[ext_resource type="PackedScene" uid="uid://r0ylvxyk204s" path="res://scenes/character_list/stat_blocks/cha_block.tscn" id="9_fo4lv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgqh7"]
+content_margin_left = 1.0
+content_margin_right = 1.0
+bg_color = Color(0.913725, 0.866667, 0.831373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6481v"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.764706, 0.647059, 0.54902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a787y"]
+
+[node name="character_list" type="PanelContainer"]
+custom_minimum_size = Vector2(319, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 319.0
+grow_vertical = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_cs51n")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgqh7")
+script = ExtResource("2_8yjg1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="header" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/header"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6481v")
+
+[node name="main_block" parent="VBoxContainer/header/PanelContainer" instance=ExtResource("3_503vl")]
+layout_mode = 2
+
+[node name="main" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/main"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a787y")
+tab_alignment = 1
+current_tab = 0
+tab_focus_mode = 0
+
+[node name="stats" type="ScrollContainer" parent="VBoxContainer/main/TabContainer"]
+layout_mode = 2
+vertical_scroll_mode = 3
+metadata/_tab_index = 0
+
+[node name="v_box" type="VBoxContainer" parent="VBoxContainer/main/TabContainer/stats"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="filler" type="Control" parent="VBoxContainer/main/TabContainer/stats/v_box"]
+layout_mode = 2
+
+[node name="str_block" parent="VBoxContainer/main/TabContainer/stats/v_box" instance=ExtResource("4_hp8dl")]
+layout_mode = 2
+
+[node name="dex_block" parent="VBoxContainer/main/TabContainer/stats/v_box" instance=ExtResource("6_322lr")]
+layout_mode = 2
+
+[node name="con_block" parent="VBoxContainer/main/TabContainer/stats/v_box" instance=ExtResource("5_vdtvd")]
+layout_mode = 2
+
+[node name="int_block" parent="VBoxContainer/main/TabContainer/stats/v_box" instance=ExtResource("7_dw4ax")]
+layout_mode = 2
+theme = null
+
+[node name="wis_block" parent="VBoxContainer/main/TabContainer/stats/v_box" instance=ExtResource("8_kadrw")]
+layout_mode = 2
+theme = null
+
+[node name="cha_block" parent="VBoxContainer/main/TabContainer/stats/v_box" instance=ExtResource("9_fo4lv")]
+layout_mode = 2
+theme = null
+
+[node name="moves" type="ScrollContainer" parent="VBoxContainer/main/TabContainer"]
+visible = false
+layout_mode = 2
+vertical_scroll_mode = 3
+metadata/_tab_index = 1
+
+[node name="v_box" type="VBoxContainer" parent="VBoxContainer/main/TabContainer/moves"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="VBoxContainer/main/TabContainer/moves/v_box"]
+layout_mode = 2
+
+[node name="spells" type="ScrollContainer" parent="VBoxContainer/main/TabContainer"]
+visible = false
+layout_mode = 2
+vertical_scroll_mode = 3
+metadata/_tab_index = 2
+
+[node name="v_box" type="VBoxContainer" parent="VBoxContainer/main/TabContainer/spells"]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="VBoxContainer/main/TabContainer/spells/v_box"]
+layout_mode = 2
+
+[connection signal="resized" from="." to="." method="_on_resized"]

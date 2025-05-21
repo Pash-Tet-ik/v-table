@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccnukr138gmqu"]
+
+[ext_resource type="Script" uid="uid://b5ebvxl3nqwru" path="res://scenes/rualette_set.gd" id="1_red7y"]
+[ext_resource type="Script" uid="uid://h8adumht5fq8" path="res://scenes/body.gd" id="2_bn58p"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_red7y"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+properties/1/path = NodePath("VBoxContainer/header/header:text")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath("VBoxContainer/header/header:theme_override_colors/font_color")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath("VBoxContainer/header/header:theme_override_colors/font_pressed_color")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+properties/4/path = NodePath("VBoxContainer/header/header:theme_override_colors/font_hover_color")
+properties/4/spawn = true
+properties/4/replication_mode = 2
+properties/5/path = NodePath("VBoxContainer/header/header:theme_override_colors/font_hover_pressed_color")
+properties/5/spawn = true
+properties/5/replication_mode = 2
+
+[node name="rualette_set" type="PanelContainer"]
+offset_right = 62.0
+offset_bottom = 226.0
+script = ExtResource("1_red7y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="header" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="header" type="Button" parent="VBoxContainer/header"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+flat = true
+text_overrun_behavior = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/header"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "×"
+
+[node name="body" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_bn58p")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_red7y")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://dn0n417pcst8q")
+spawn_path = NodePath("../VBoxContainer/body")
+
+[connection signal="button_down" from="VBoxContainer/header/header" to="." method="_on_header_button_down"]
+[connection signal="button_up" from="VBoxContainer/header/header" to="." method="_on_header_button_up"]
+[connection signal="pressed" from="VBoxContainer/header/Button" to="." method="_on_button_pressed"]

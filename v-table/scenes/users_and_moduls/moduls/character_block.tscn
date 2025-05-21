@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bavjk131m66or"]
+
+[ext_resource type="Script" uid="uid://54uqqluisf6c" path="res://scenes/users_and_moduls/moduls/character_block.gd" id="1_8cb32"]
+[ext_resource type="PackedScene" uid="uid://cenagl3eg21rn" path="res://scenes/character_list/character_list.tscn" id="1_ajpwn"]
+[ext_resource type="Theme" uid="uid://c8l1hasoxldul" path="res://assets/themes/ui.tres" id="1_omn3r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1m7a"]
+bg_color = Color(0.913725, 0.866667, 0.831373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cb32"]
+bg_color = Color(0.823529, 0.737255, 0.670588, 1)
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omn3r"]
+bg_color = Color(0.913725, 0.866667, 0.831373, 1)
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[node name="CharacterBlock" type="HBoxContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 45.0
+grow_vertical = 2
+theme = ExtResource("1_omn3r")
+theme_override_constants/separation = 0
+script = ExtResource("1_8cb32")
+
+[node name="main" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(319, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1m7a")
+
+[node name="character_list" parent="main" instance=ExtResource("1_ajpwn")]
+visible = false
+layout_mode = 2
+
+[node name="side_btns" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="open_close_btn" type="Button" parent="side_btns"]
+custom_minimum_size = Vector2(45, 75)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8cb32")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8cb32")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_omn3r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_omn3r")
+toggle_mode = true
+text = "@"
+
+[connection signal="toggled" from="side_btns/open_close_btn" to="." method="_on_button_toggled"]

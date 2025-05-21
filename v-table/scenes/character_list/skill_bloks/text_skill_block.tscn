@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3dfst6nabn6u"]
+
+[ext_resource type="PackedScene" uid="uid://cyosea6robf13" path="res://scenes/character_list/skill_bloks/base_skill_block.tscn" id="1_ypm0m"]
+[ext_resource type="Theme" uid="uid://c13ifcoovlqfi" path="res://assets/themes/char_list.tres" id="2_bnmw0"]
+[ext_resource type="Script" uid="uid://caqs0hx8g6fm3" path="res://scenes/character_list/skill_bloks/text_skill_block.gd" id="3_oe51i"]
+[ext_resource type="Theme" uid="uid://bx2vf0reasapg" path="res://assets/themes/counter.tres" id="4_a2u3k"]
+
+[node name="skill_block" instance=ExtResource("1_ypm0m")]
+theme = ExtResource("2_bnmw0")
+script = ExtResource("3_oe51i")
+
+[node name="name" parent="body/caption" index="0"]
+custom_minimum_size = Vector2(209, 0)
+text = "НАЗВАНИЕ "
+
+[node name="counter" type="SpinBox" parent="body/caption" index="1"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_a2u3k")
+alignment = 1
+
+[node name="HSeparator" parent="body" index="1"]
+visible = true
+
+[node name="label" type="Label" parent="body/description" index="0"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 2

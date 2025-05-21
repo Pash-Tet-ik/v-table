@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://i4hpvsyj70ua"
+path="res://.godot/imported/Terraria Music - Eerie.ogg-df17ecd47d07d7bed86c89e9dfd2cf40.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Terraria Music - Eerie.ogg"
+dest_files=["res://.godot/imported/Terraria Music - Eerie.ogg-df17ecd47d07d7bed86c89e9dfd2cf40.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

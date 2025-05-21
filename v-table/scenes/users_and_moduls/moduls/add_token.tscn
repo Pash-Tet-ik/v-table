@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3jpwxqt41poh"]
+
+[ext_resource type="Script" uid="uid://dg5d660ixll2t" path="res://scenes/users_and_moduls/moduls/add_token.gd" id="1_3p3xy"]
+
+[node name="add_token_btn" type="Button"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+offset_right = 142.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "token"
+script = ExtResource("1_3p3xy")
+metadata/_edit_use_anchors_ = true
+
+[node name="FileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+size = Vector2i(480, 640)
+mouse_passthrough_polygon = PackedVector2Array(0, 0, 640, 0, 640, 360, 0, 360)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="mouse_entered" from="FileDialog" to="." method="_on_file_dialog_mouse_entered"]
+[connection signal="mouse_exited" from="FileDialog" to="." method="_on_file_dialog_mouse_exited"]
