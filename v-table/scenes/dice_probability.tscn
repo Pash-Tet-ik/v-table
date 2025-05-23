@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://pt74rhi7xtto"]
+
+[ext_resource type="Script" uid="uid://dvev682iqx22i" path="res://scenes/dice_probability.gd" id="1_pvg81"]
+
+[node name="DiceProbability" type="MarginContainer"]
+offset_right = 460.0
+offset_bottom = 509.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_pvg81")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ну давай, поплачь"
+
+[node name="ModifierInput" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ModifierLabel" type="Label" parent="MarginContainer/VBoxContainer/ModifierInput"]
+layout_mode = 2
+text = "Модификатор"
+
+[node name="ModifierSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ModifierInput"]
+layout_mode = 2
+min_value = -20.0
+
+[node name="AdvantageDisadvantageToggle" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AdvDisToggleLabel" type="Label" parent="MarginContainer/VBoxContainer/AdvantageDisadvantageToggle"]
+layout_mode = 2
+text = "Преим./помеха"
+
+[node name="AdvDisActiveCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/AdvantageDisadvantageToggle"]
+layout_mode = 2
+
+[node name="AdvantageDisadvantageSettings" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AdvDisTypeLabel" type="Label" parent="MarginContainer/VBoxContainer/AdvantageDisadvantageSettings"]
+layout_mode = 2
+text = "Тип:"
+
+[node name="AdvDisTypeOptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/AdvantageDisadvantageSettings"]
+layout_mode = 2
+selected = 0
+
+[node name="AdvDisCountLabel" type="Label" parent="MarginContainer/VBoxContainer/AdvantageDisadvantageSettings"]
+layout_mode = 2
+text = "Количество:"
+
+[node name="AdvDisCountSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/AdvantageDisadvantageSettings"]
+layout_mode = 2
+
+[node name="BonusDiceToggle" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BonusDiceToggleLabel" type="Label" parent="MarginContainer/VBoxContainer/BonusDiceToggle"]
+layout_mode = 2
+text = "Ещё кубы:"
+
+[node name="BonusDiceActiveCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/BonusDiceToggle"]
+layout_mode = 2
+
+[node name="BonusDiceSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BonusDiceRowsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BonusDiceSettings"]
+layout_mode = 2
+
+[node name="AddBonusDieButton" type="Button" parent="MarginContainer/VBoxContainer/BonusDiceSettings"]
+layout_mode = 2
+text = "Добавить тип куба"
+
+[node name="GraphContainer" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Назад"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/AdvantageDisadvantageToggle/AdvDisActiveCheckBox" to="." method="_on_adv_dis_active_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/AdvantageDisadvantageSettings/AdvDisTypeOptionButton" to="." method="_on_adv_dis_type_selected"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AdvantageDisadvantageSettings/AdvDisCountSpinBox" to="." method="_on_adv_dis_count_changed"]
+[connection signal="resized" from="MarginContainer/VBoxContainer/GraphContainer" to="." method="_on_graph_resized"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]

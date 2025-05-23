@@ -23,7 +23,7 @@ Server="*res://singleton/server.gd"
 [display]
 
 window/size/viewport_width=960
-window/size/viewport_height=1000
+window/size/viewport_height=850
 
 [input]
 

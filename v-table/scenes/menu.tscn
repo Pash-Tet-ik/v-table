@@ -28,6 +28,11 @@ theme_override_constants/margin_bottom = 100
 [node name="main_cont" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Button" type="Button" parent="MarginContainer/main_cont"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "prob"
+
 [node name="panel_cont" type="PanelContainer" parent="MarginContainer/main_cont"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -76,6 +81,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 64
 text = "host"
 
+[connection signal="pressed" from="MarginContainer/main_cont/Button" to="." method="_on_prob_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/main_cont/characters" to="." method="_on_characters_pressed"]
 [connection signal="pressed" from="MarginContainer/main_cont/inputs/connect_btn" to="." method="_on_connect_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/main_cont/inputs/host_btn" to="." method="_on_host_btn_pressed"]

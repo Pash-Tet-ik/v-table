@@ -60,6 +60,9 @@ func _ready() -> void:
 	]
 	status_label.text = msg.pick_random()
 
+func _on_prob_btn_pressed():
+	get_tree().change_scene_to_file("res://scenes/dice_probability.tscn")
+
 func _on_host_btn_pressed() -> void:
 	var port = int(port_input.text) if int(port_input.text) else DEFAULT_PORT
 	var peer = ENetMultiplayerPeer.new()
@@ -88,3 +91,7 @@ func _on_connect_btn_pressed() -> void:
 
 func _on_characters_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/characters_preview.tscn")
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.
