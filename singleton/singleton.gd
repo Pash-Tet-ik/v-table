@@ -5,10 +5,11 @@ var characters = []
 var real_version = "0.5"
 var settings = {
 	"version" : real_version,
-	"volume" : {"master" : 0.5, "music" : 0.5, "sfx" : 0.5
-}}
+	"volume" : {"master" : 0.5, "music" : 0.5, "sfx" : 0.5}
+}
 
 var user : Node
+var table : Node
 var data : Dictionary
 
 func _ready() -> void:
@@ -25,11 +26,13 @@ func _ready() -> void:
 func load_settings():
 	var file = FileAccess.open("user://settings.json", FileAccess.READ)
 	settings = JSON.parse_string(file.get_as_text())
+	file.close()
 
 
 func save_settings():
 	var file = FileAccess.open("user://settings.json", FileAccess.WRITE)
 	file.store_line(JSON.stringify(settings))
+	file.close()
 
 
 func load_chars():

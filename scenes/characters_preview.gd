@@ -3,7 +3,6 @@ extends Node2D
 var input_access
 
 func _ready() -> void:
-	$ui/CharacterSelection.user = self
 	G.user = self
 
 func set_up_charachter(character):

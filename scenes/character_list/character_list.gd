@@ -1,5 +1,6 @@
 extends PanelContainer
 
+
 var all_stats_zero = {
 	"athletics" : 0,
 	"acrobatics" : 0,
@@ -20,12 +21,21 @@ var all_stats_zero = {
 	"deception" : 0,
 	"persuasion" : 0
 }
+var stats = {
+	"str" : ["athletics"],
+	"dex" : ["acrobatics", "sleight_of_hand", "stealth"],
+	"con" : [],
+	"int" : ["investigation", "history", "arcana", "nature", "religion"],
+	"wis" : ["perception", "survival", "medicine", "insight", "animal_handling"],
+	"cha" : ["performance","intimidation","deception","persuasion"]
+}
 var add_stats_template : Dictionary
 
-func _ready() -> void:
-	$VBoxContainer/main/TabContainer.set_tab_title(0, "статы")
-	$VBoxContainer/main/TabContainer.set_tab_title(1, "скилы")
-	$VBoxContainer/main/TabContainer.set_tab_title(2, "спелы")
+
+func _ready() -> void: 
+	var titles = ["статы", "скилы", "спелы"]
+	for i in 3:
+		$VBoxContainer/main/TabContainer.set_tab_title(i, titles[i])
 
 
 func set_up(character : Dictionary):
@@ -34,72 +44,21 @@ func set_up(character : Dictionary):
 	$VBoxContainer/header/PanelContainer/main_block/header/name.text = character["name"]
 	$VBoxContainer/header/PanelContainer/main_block/main/hp_box/hp.max_value = character["max_hp"]
 	$VBoxContainer/header/PanelContainer/main_block/main/hp_box/hp.value = character["max_hp"]
-	G.data["hp"] = int(character["max_hp"])
 	$VBoxContainer/header/PanelContainer/main_block/main/cd_box/cd.value = character["cd"]
 
 	add_stats_template = all_stats_zero.duplicate()
 	for add_stat in character["add_stats"].keys():
 		add_stats_template[add_stat] += character["add_stats"][add_stat]
 
-	$VBoxContainer/main/TabContainer/stats/v_box/str_block/body/main/var.text = "(" + str(int(character["main_stats"]["str"]))  + ")"
-	mod = int(character["main_stats"]["str"] / 2) - 5
-	$VBoxContainer/main/TabContainer/stats/v_box/str_block/body/main/mod.text = "+" + str(mod) if mod > 0 else str(mod)
-	add_mod = mod + int(add_stats_template["athletics"])
-	$VBoxContainer/main/TabContainer/stats/v_box/str_block/body/additional/athletics/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-
-	$VBoxContainer/main/TabContainer/stats/v_box/dex_block/body/main/var.text = "(" + str(int(character["main_stats"]["dex"]))  + ")"
-	mod = int(character["main_stats"]["dex"] / 2) - 5
-	$VBoxContainer/main/TabContainer/stats/v_box/dex_block/body/main/mod.text = "+" + str(mod) if mod > 0 else str(mod)
-	add_mod = mod + int(add_stats_template["acrobatics"])
-	$VBoxContainer/main/TabContainer/stats/v_box/dex_block/body/additional/acrobatics/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["sleight_of_hand"])
-	$VBoxContainer/main/TabContainer/stats/v_box/dex_block/body/additional/sleight_of_hand/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["stealth"])
-	$VBoxContainer/main/TabContainer/stats/v_box/dex_block/body/additional/stealth/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-
-	$VBoxContainer/main/TabContainer/stats/v_box/con_block/body/main/var.text = "(" + str(int(character["main_stats"]["con"]))  + ")"
-	mod = int(character["main_stats"]["con"] / 2) - 5
-	$VBoxContainer/main/TabContainer/stats/v_box/con_block/body/main/mod.text = "+" + str(mod) if mod > 0 else str(mod)
-
-	$VBoxContainer/main/TabContainer/stats/v_box/int_block/body/main/var.text = "(" + str(int(character["main_stats"]["int"]))  + ")"
-	mod = int(character["main_stats"]["int"] / 2) - 5
-	$VBoxContainer/main/TabContainer/stats/v_box/int_block/body/main/mod.text = "+" + str(mod) if mod > 0 else str(mod)
-	add_mod = mod + int(add_stats_template["investigation"])
-	$VBoxContainer/main/TabContainer/stats/v_box/int_block/body/additional/investigation/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["history"])
-	$VBoxContainer/main/TabContainer/stats/v_box/int_block/body/additional/history/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["arcana"])
-	$VBoxContainer/main/TabContainer/stats/v_box/int_block/body/additional/arcana/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["nature"])
-	$VBoxContainer/main/TabContainer/stats/v_box/int_block/body/additional/nature/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["religion"])
-	$VBoxContainer/main/TabContainer/stats/v_box/int_block/body/additional/religion/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-
-	$VBoxContainer/main/TabContainer/stats/v_box/wis_block/body/main/var.text = "(" + str(int(character["main_stats"]["wis"]))  + ")"
-	mod = int(character["main_stats"]["wis"] / 2) - 5
-	$VBoxContainer/main/TabContainer/stats/v_box/wis_block/body/main/mod.text = "+" + str(mod) if mod > 0 else str(mod)
-	add_mod = mod + int(add_stats_template["perception"])
-	$VBoxContainer/main/TabContainer/stats/v_box/wis_block/body/additional/perception/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["survival"])
-	$VBoxContainer/main/TabContainer/stats/v_box/wis_block/body/additional/survival/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["medicine"])
-	$VBoxContainer/main/TabContainer/stats/v_box/wis_block/body/additional/medicine/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["insight"])
-	$VBoxContainer/main/TabContainer/stats/v_box/wis_block/body/additional/insight/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["animal_handling"])
-	$VBoxContainer/main/TabContainer/stats/v_box/wis_block/body/additional/animal_handling/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-
-	$VBoxContainer/main/TabContainer/stats/v_box/cha_block/body/main/var.text = "(" + str(int(character["main_stats"]["cha"]))  + ")"
-	mod = int((character["main_stats"]["cha"] - 10) / 2) 
-	$VBoxContainer/main/TabContainer/stats/v_box/cha_block/body/main/mod.text = "+" + str(mod) if mod > 0 else str(mod)
-	add_mod = mod + int(add_stats_template["performance"])
-	$VBoxContainer/main/TabContainer/stats/v_box/cha_block/body/additional/performance/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["intimidation"])
-	$VBoxContainer/main/TabContainer/stats/v_box/cha_block/body/additional/intimidation/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["deception"])
-	$VBoxContainer/main/TabContainer/stats/v_box/cha_block/body/additional/deception/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
-	add_mod = mod + int(add_stats_template["persuasion"])
-	$VBoxContainer/main/TabContainer/stats/v_box/cha_block/body/additional/persuasion/mod.text = ("+" if add_mod > 0 else "") + str(add_mod)
+	var path
+	for main_stat in stats:
+		path = "VBoxContainer/main/TabContainer/stats/v_box/" + main_stat + "_block/body/"
+		mod = int(character["main_stats"][main_stat] / 2) - 5
+		get_node(path + "main/var").text = "(" + str(int(character["main_stats"][main_stat]))  + ")"
+		get_node(path + "main/mod").text = "+" + str(mod) if mod > 0 else str(mod)
+		for additional_stat in stats[main_stat]:
+			add_mod = mod + int(add_stats_template[additional_stat])
+			get_node(path + "additional/" + additional_stat + "/mod").text = ("+" if add_mod > 0 else "") + str(add_mod)
 
 	for child in $VBoxContainer/main/TabContainer/moves/v_box.get_children():
 		child.queue_free()
@@ -140,7 +99,6 @@ func set_up(character : Dictionary):
 
 func _on_resized() -> void:
 	var w_size_y = get_window().size.y
-	
 	if w_size_y >= 1080:
 		theme.set_font_size("font_size", "Label", 24)
 	else:

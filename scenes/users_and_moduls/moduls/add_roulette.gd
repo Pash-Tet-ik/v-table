@@ -1,8 +1,6 @@
 extends VBoxContainer
 
 var selected_dises : Array
-var table : Node2D
-var user : Node2D
 
 
 func _ready() -> void:
@@ -18,11 +16,11 @@ func _on_throw_pressed() -> void:
 		else:
 			el.hide()
 	if selected_dises:
-		var aim_pos = user.global_position #+ user.get_viewport_rect().size / user.get_child(0).zoom / 2
-		if "character" in user:
-			table.add_roulettes(selected_dises, aim_pos, user.character["name"], user.character["color"])
+		var aim_pos = G.user.global_position #+ user.get_viewport_rect().size / user.get_child(0).zoom / 2
+		if "character" in G.user:
+			G.table.add_roulettes(selected_dises, aim_pos, G.user.character["name"], G.user.character["color"])
 		else:
-			table.add_roulettes(selected_dises, aim_pos, "", "#FFFFFF")
+			G.table.add_roulettes(selected_dises, aim_pos, "", "#FFFFFF")
 
 
 func _on_open_pressed() -> void:

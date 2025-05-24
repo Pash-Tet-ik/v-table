@@ -8,7 +8,6 @@ var input_access = true
 
 
 func _ready() -> void:
-	table = get_parent()
 	G.user = self
 
 
@@ -26,7 +25,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("will_btn"):
 		drag = false
 		pre_mouse_position = Vector2.ZERO
-	
+
 	if drag:
 		if pre_mouse_position == Vector2.ZERO:
 			pre_mouse_position = get_global_mouse_position()

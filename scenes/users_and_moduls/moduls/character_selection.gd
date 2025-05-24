@@ -1,7 +1,5 @@
 extends Control
 
-var user : Node2D
-var charachter : Dictionary
 
 func _ready() -> void:
 	for i in len(G.characters):
@@ -10,8 +8,7 @@ func _ready() -> void:
 		$ScrollContainer/VBoxContainer.add_child(el)
 		el.connect("pressed", Callable(self, "select").bind(i))
 
+
 func select(i : int) -> void:
-	charachter = G.characters[i]
 	hide()
-	user.set_up_charachter(charachter)
-	
+	G.user.set_up_charachter(G.characters[i])
