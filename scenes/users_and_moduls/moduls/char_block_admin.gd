@@ -19,6 +19,7 @@ func _on_update_btn_pressed() -> void:
 
 	for i in len(Server.players):
 		var el = Button.new()
+		el.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		if "name" in Server.players[i].keys():
 			el.text = str(Server.players[i]["name"])
 		else:
@@ -34,6 +35,8 @@ func select(id : int) -> void:
 			$main/character_list.set_up(find_char_by_name(player["name"]))
 			if "hp" in player.keys():
 				$main/character_list/VBoxContainer/header/PanelContainer/main_block/main/hp_box/hp.value = player["hp"]
+			if "temp_hp" in player.keys():
+				$main/character_list/VBoxContainer/header/PanelContainer/main_block/main/time_hp_box/hp.value = player["temp_hp"]
 			$main/character_list.show()
 			$main/players_selection.hide()
 			return

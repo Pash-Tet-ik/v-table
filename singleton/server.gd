@@ -24,11 +24,9 @@ func request_player_data(player_id: int) -> void:
 
 @rpc
 func send_data_to_server():
-	var data = {}
+	var data = G.data.duplicate()
 	if "name" in G.user.character.keys():
 		data["name"] = G.user.character["name"]
-	if "hp" in G.data.keys():
-		data["hp"] = G.data["hp"]
 	
 	rpc_id(1, "get_data_from_player", multiplayer.get_unique_id(), data)
 

@@ -4,7 +4,9 @@ var global_counter = 0
 
 func _ready() -> void:
 	G.table = self
-	admin_init() if multiplayer.is_server() else client_init()
+
+	if multiplayer.is_server(): admin_init()
+	else: client_init()
 
 	for i in range(-13,13):
 		for j in range(-13,13):

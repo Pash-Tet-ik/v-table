@@ -114,3 +114,4 @@ custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 
 [connection signal="value_changed" from="main/hp_box/hp" to="." method="_on_hp_value_changed"]
+[connection signal="value_changed" from="main/time_hp_box/hp" to="." method="_temp_on_hp_value_changed"]
