@@ -2,9 +2,7 @@ extends Node
 
 var smth_is_pick = false
 var characters = []
-var real_version = "0.5"
 var settings = {
-	"version" : real_version,
 	"volume" : {"master" : 0.5, "music" : 0.5, "sfx" : 0.5}
 }
 
@@ -13,15 +11,15 @@ var table : Node
 var data : Dictionary
 
 func _ready() -> void:
-	load_chars()
-
 	if FileAccess.file_exists("user://settings.json"): 
 		load_settings()
-		if settings["version"] != real_version:
-			settings["version"] = real_version
-	save_settings()
+	else:
+		save_settings()
 
 	AudioServer.set_bus_volume_db(0,linear_to_db(settings["volume"]["master"]))
+
+	load_chars()
+
 
 func load_settings():
 	var file = FileAccess.open("user://settings.json", FileAccess.READ)

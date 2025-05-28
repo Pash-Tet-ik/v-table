@@ -9,10 +9,10 @@ func _ready() -> void:
 	multiplayer.peer_disconnected.connect(_on_player_disconnected)
 
 func _on_player_connected(id: int):
-	print("connected" + str(id))
+	print("connected " + str(id))
 	Server.add_player(id)
 
 
 func _on_player_disconnected(id: int):
-	print("disconnected" + str(id))
+	print("disconnected " + str(id))
 	Server.del_player(id)

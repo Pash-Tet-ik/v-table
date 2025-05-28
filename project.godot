@@ -15,6 +15,10 @@ run/main_scene="uid://bg8w2ia2irj1b"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="uid://scym8tkrli76"
 
+[audio]
+
+buses/default_bus_layout="res://audio/default_bus_layout.tres"
+
 [autoload]
 
 G="*res://singleton/singleton.gd"

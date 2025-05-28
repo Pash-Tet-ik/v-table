@@ -20,17 +20,18 @@ func _process(delta):
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if !G.smth_is_pick:
-		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if !G.smth_is_pick and event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			is_dragging = true
 			dragging_offset = global_position - get_global_mouse_position()
 			G.smth_is_pick = true
-		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 			if multiplayer.is_server():
 				rpc("delite")
 
 
 func _input(event: InputEvent) -> void:
+	print(event)
 	if event is InputEventMouseButton and !event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		is_dragging = false
 		dragging_offset = Vector2.ZERO
@@ -41,9 +42,11 @@ func set_texture(img : ImageTexture, x : float, y : float):
 	$Sprite2D.texture = img
 	$Sprite2D.scale = Vector2(x / img.get_width(), y / img.get_height())
 
+
 @rpc("any_peer", "call_local")
 func sync_position(pos: Vector2):
 	global_position = pos
+
 
 @rpc("any_peer", "call_local")
 func delite():

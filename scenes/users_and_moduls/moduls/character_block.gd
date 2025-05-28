@@ -7,8 +7,10 @@ func _on_button_toggled(toggled_on: bool) -> void:
 	else:
 		$main.hide()
 
+
 func set_pressed():
 	$side_btns/open_close_btn.button_pressed = true
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
