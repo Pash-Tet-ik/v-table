@@ -36,5 +36,33 @@ offset_top = 5.0
 offset_right = 325.0
 offset_bottom = 5.0
 
+[node name="right_bot" type="VBoxContainer" parent="ui"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="add_new" type="Button" parent="ui/right_bot"]
+layout_mode = 2
+theme = ExtResource("3_lesvq")
+text = "add_new"
+
+[node name="FileDialog" type="FileDialog" parent="ui/right_bot/add_new"]
+auto_translate_mode = 1
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
 [connection signal="pressed" from="ui/VBoxContainer/close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="ui/VBoxContainer/refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="ui/right_bot/add_new" to="." method="_on_add_new_pressed"]
+[connection signal="file_selected" from="ui/right_bot/add_new/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="mouse_entered" from="ui/right_bot/add_new/FileDialog" to="." method="_on_file_dialog_mouse_entered"]
+[connection signal="mouse_exited" from="ui/right_bot/add_new/FileDialog" to="." method="_on_file_dialog_mouse_exited"]

@@ -8,6 +8,7 @@ func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_player_connected)
 	multiplayer.peer_disconnected.connect(_on_player_disconnected)
 
+
 func _on_player_connected(id: int):
 	print("connected " + str(id))
 	Server.add_player(id)

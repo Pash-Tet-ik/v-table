@@ -5,6 +5,7 @@ var players = []
 
 func add_player(id: int) -> void :
 	players.append({"id" : id})
+	rpc_id(id, "send_characters_to_player", G.characters)
 
 
 func del_player(id: int) -> void :
@@ -18,6 +19,12 @@ func del_player(id: int) -> void :
 func update():
 	for player in players:
 		request_player_data(player["id"])
+
+
+@rpc
+func send_characters_to_player(characters) -> void:
+	G.characters = characters
+	G.user.find_child("CharacterSelection")._ready()
 
 
 @rpc("any_peer")

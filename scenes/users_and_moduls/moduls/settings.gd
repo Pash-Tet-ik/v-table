@@ -25,8 +25,6 @@ func _on_h_slider_value_changed(value: float) -> void:
 
 func _on_exit_pressed() -> void:
 	if multiplayer.is_server():
-		pass
-		#multiplayer.multiplayer_peer.close()
-	else:
-		multiplayer.multiplayer_peer.close()
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		Server.players.clear()
+	multiplayer.multiplayer_peer.close()
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

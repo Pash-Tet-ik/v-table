@@ -16,5 +16,4 @@ func _on_file_dialog_mouse_exited() -> void:
 
 
 func _on_file_dialog_file_selected(path: String) -> void:
-	print(file_dialog.current_path)
 	G.table.add_map(path, Vector2(30,20))
