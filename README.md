@@ -5,7 +5,7 @@
 - **Networking**: High-level ENet (+ WebSocket fallback)  
 - **Rendering**: Vulkan/OpenGL ES 3.0  
 ### Installation
-1. **Download** the the [[latest release](https://img.shields.io/github/v/release/Pash-Tet-ik/v-table)](https://github.com/Pash-Tet-ik/v-table/releases/latest/download/portable.7z)  
+1. **Download** the the [latest release](https://github.com/Pash-Tet-ik/v-table/releases/latest/download/portable.7z)  
 2.  **Extract** to your preferred location  
 3.  **Run** `V-Table.exe`
 
