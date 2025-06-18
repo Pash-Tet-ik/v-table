@@ -1,5 +1,5 @@
-### v-table
-**v-table** is a lightweight virtual tabletop that enables host-based multiplayer for Dungeons & Dragons and other tabletop RPGs. Perfect for remote gaming sessions with friends.
+### V-table
+**V-table** is a lightweight virtual tabletop that enables host-based multiplayer for Dungeons & Dragons and other tabletop RPGs. Perfect for remote gaming sessions with friends.
 ###  Technology Stack
 - **Engine**: Godot 4.4.1 (stable)  
 - **Networking**: High-level ENet (+ WebSocket fallback)  
