@@ -8,3 +8,5 @@ export_presets.cfg
 
 #
 .7z
+project.godot
+*.import
