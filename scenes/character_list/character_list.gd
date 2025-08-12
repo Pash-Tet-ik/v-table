@@ -36,7 +36,10 @@ func _ready() -> void:
 	var titles = ["статы", "скилы", "спелы"]
 	for i in 3:
 		$VBoxContainer/main/TabContainer.set_tab_title(i, titles[i])
-
+	
+	$VBoxContainer/main/TabContainer/moves/v_box/Card/body/main/description.text = "мало букав мало букав"
+	$VBoxContainer/main/TabContainer/moves/v_box/Card2/body/main/description.text = "многа букав многа букав многа букав многа букав многа букав многа букав многа букав многа букав многа букав многа букав"
+	$VBoxContainer/main/TabContainer/moves/v_box/Card3/body/main/description.text = "средне букав средне букав средне букав средне букав средне букав средне букав"
 
 func set_up(character : Dictionary):
 	var mod = 0

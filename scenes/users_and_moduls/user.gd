@@ -14,14 +14,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if input_access:
 		if Input.is_action_just_pressed("will_up"):
-			$camera.zoom += Vector2.ONE * delta * zoom_speed
+			if ($camera.zoom - Vector2.ONE * delta * zoom_speed).x < 2.:
+				$camera.zoom += Vector2.ONE * delta * zoom_speed
+
 		if Input.is_action_just_pressed("will_down"):	
-			if ($camera.zoom - Vector2.ONE * delta * zoom_speed).x < 0.15:
-				$camera.zoom = Vector2.ONE * 0.15
-			else:
+			if ($camera.zoom - Vector2.ONE * delta * zoom_speed).x > 0.25:
 				$camera.zoom -= Vector2.ONE * delta * zoom_speed
+
 		if Input.is_action_just_pressed("will_btn"):
 			drag = true
+
 	if Input.is_action_just_released("will_btn"):
 		drag = false
 		pre_mouse_position = Vector2.ZERO

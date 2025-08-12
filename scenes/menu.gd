@@ -10,7 +10,7 @@ const DEFAULT_PORT = 8910
 
 func _ready() -> void:
 	var file = FileAccess.open("res://db/greeting_messages.json", FileAccess.READ)
-	status_label.text = JSON.parse_string(file.get_as_text())["normal"].pick_random()
+	status_label.text = JSON.parse_string(file.get_as_text())["rofls"].pick_random()
 	file.close()
 
 
