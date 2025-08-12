@@ -19,7 +19,8 @@ func _ready() -> void:
 	AudioServer.set_bus_volume_db(0,linear_to_db(settings["volume"]["master"]))
 
 	if DirAccess.dir_exists_absolute("user://db/characters"):
-		load_chars()
+		load_preset_chars() 
+		#load_chars()
 	else:
 		DirAccess.make_dir_recursive_absolute("user://db/characters")
 		load_preset_chars()

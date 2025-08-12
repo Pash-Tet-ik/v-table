@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://cubce3ew4fe51"]
+
+[ext_resource type="Theme" uid="uid://b8dgyjycufyh6" path="res://assets/themes/card.tres" id="1_u543j"]
+[ext_resource type="Script" uid="uid://d2epvf7gypf1i" path="res://scenes/entities/card.gd" id="2_eel7b"]
+[ext_resource type="Theme" uid="uid://bx2vf0reasapg" path="res://assets/themes/counter.tres" id="3_yjvqb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eel7b"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.764706, 0.647059, 0.54902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.764706, 0.647059, 0.54902, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjvqb"]
+content_margin_left = 2.0
+content_margin_right = 2.0
+bg_color = Color(0.823529, 0.737255, 0.670588, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Card" type="PanelContainer"]
+custom_minimum_size = Vector2(307, 0)
+theme = ExtResource("1_u543j")
+theme_override_styles/panel = SubResource("StyleBoxFlat_eel7b")
+script = ExtResource("2_eel7b")
+
+[node name="body" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="header" type="HBoxContainer" parent="body"]
+layout_mode = 2
+
+[node name="name" type="Button" parent="body/header"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "название"
+alignment = 0
+autowrap_mode = 2
+
+[node name="counter" type="SpinBox" parent="body/header"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_yjvqb")
+alignment = 1
+
+[node name="cost" type="Label" parent="body/header"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "❱"
+
+[node name="HSeparator" type="HSeparator" parent="body"]
+layout_mode = 2
+
+[node name="main" type="VBoxContainer" parent="body"]
+layout_mode = 2
+
+[node name="attack" type="HBoxContainer" parent="body/main"]
+visible = false
+layout_mode = 2
+
+[node name="filler_left" type="Control" parent="body/main/attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="mod_label" type="Label" parent="body/main/attack"]
+layout_mode = 2
+text = "бонус"
+
+[node name="mod" type="Button" parent="body/main/attack"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_yjvqb")
+text = "+XX"
+
+[node name="filler" type="Control" parent="body/main/attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="dmg_label" type="Label" parent="body/main/attack"]
+layout_mode = 2
+text = "урон"
+
+[node name="dmg" type="Button" parent="body/main/attack"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_yjvqb")
+text = "XкXX + X"
+
+[node name="filler_right" type="Control" parent="body/main/attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="description" type="Label" parent="body/main"]
+layout_mode = 2
+text = "описание"
+autowrap_mode = 3
+
+[connection signal="button_down" from="body/header/name" to="." method="_on_name_button_down"]
