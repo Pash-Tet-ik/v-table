@@ -58,27 +58,27 @@ alignment = 1
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
-[node name="time_hp_box" type="HBoxContainer" parent="main"]
+[node name="temp_hp_box" type="HBoxContainer" parent="main"]
 layout_mode = 2
 
-[node name="filler" type="Control" parent="main/time_hp_box"]
+[node name="filler" type="Control" parent="main/temp_hp_box"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
-[node name="name" type="Label" parent="main/time_hp_box"]
+[node name="name" type="Label" parent="main/temp_hp_box"]
 layout_mode = 2
 text = "временные"
 
-[node name="filler2" type="Control" parent="main/time_hp_box"]
+[node name="filler2" type="Control" parent="main/temp_hp_box"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="hp" type="SpinBox" parent="main/time_hp_box"]
+[node name="temp_hp" type="SpinBox" parent="main/temp_hp_box"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="filler3" type="Control" parent="main/time_hp_box"]
+[node name="filler3" type="Control" parent="main/temp_hp_box"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
@@ -114,4 +114,4 @@ custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 
 [connection signal="value_changed" from="main/hp_box/hp" to="." method="_on_hp_value_changed"]
-[connection signal="value_changed" from="main/time_hp_box/hp" to="." method="_temp_on_hp_value_changed"]
+[connection signal="value_changed" from="main/temp_hp_box/temp_hp" to="." method="_temp_on_hp_value_changed"]

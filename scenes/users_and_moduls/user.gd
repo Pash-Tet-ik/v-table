@@ -3,7 +3,6 @@ extends Node2D
 var zoom_speed = 10
 var drag = false
 var pre_mouse_position = Vector2.ZERO
-var table : Node
 var input_access = true
 
 

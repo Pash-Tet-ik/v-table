@@ -4,6 +4,8 @@ var input_access
 
 func _ready() -> void:
 	G.user = self
+	find_child("CharacterSelection").add_chars()
+
 
 func set_up_charachter(character):
 	var list = load("res://scenes/character_list/character_list.tscn").instantiate()
@@ -21,6 +23,7 @@ func _on_refresh_pressed() -> void:
 
 func _on_file_dialog_mouse_entered() -> void:
 	G.user.input_access = false
+
 
 func _on_file_dialog_mouse_exited() -> void:
 	G.user.input_access = true

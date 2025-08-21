@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cenagl3eg21rn"]
+[gd_scene load_steps=13 format=3 uid="uid://cenagl3eg21rn"]
 
 [ext_resource type="Theme" uid="uid://c13ifcoovlqfi" path="res://assets/themes/char_list.tres" id="1_cs51n"]
 [ext_resource type="Script" uid="uid://demwqucvxtptt" path="res://scenes/character_list/character_list.gd" id="2_8yjg1"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://d0fmiokl32swf" path="res://scenes/character_list/stat_blocks/int_block.tscn" id="7_dw4ax"]
 [ext_resource type="PackedScene" uid="uid://wx1rfeia8mph" path="res://scenes/character_list/stat_blocks/wis_block.tscn" id="8_kadrw"]
 [ext_resource type="PackedScene" uid="uid://r0ylvxyk204s" path="res://scenes/character_list/stat_blocks/cha_block.tscn" id="9_fo4lv"]
-[ext_resource type="PackedScene" uid="uid://cubce3ew4fe51" path="res://scenes/entities/card.tscn" id="10_cs51n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgqh7"]
 content_margin_left = 1.0
@@ -111,15 +110,6 @@ metadata/_tab_index = 1
 layout_mode = 2
 
 [node name="filler" type="Control" parent="VBoxContainer/main/TabContainer/moves/v_box"]
-layout_mode = 2
-
-[node name="Card" parent="VBoxContainer/main/TabContainer/moves/v_box" instance=ExtResource("10_cs51n")]
-layout_mode = 2
-
-[node name="Card2" parent="VBoxContainer/main/TabContainer/moves/v_box" instance=ExtResource("10_cs51n")]
-layout_mode = 2
-
-[node name="Card3" parent="VBoxContainer/main/TabContainer/moves/v_box" instance=ExtResource("10_cs51n")]
 layout_mode = 2
 
 [node name="spells" type="ScrollContainer" parent="VBoxContainer/main/TabContainer"]
