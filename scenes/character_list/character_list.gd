@@ -1,6 +1,5 @@
 extends PanelContainer
 
-
 var all_stats_zero = {
 	"athletics" : 0,
 	"acrobatics" : 0,
@@ -36,19 +35,34 @@ func _ready() -> void:
 	var titles = ["статы", "скилы", "спелы"]
 	for i in 3:
 		$VBoxContainer/main/TabContainer.set_tab_title(i, titles[i])
-	
-	$VBoxContainer/main/TabContainer/moves/v_box/Card/body/main/description.text = "мало букав мало букав"
-	$VBoxContainer/main/TabContainer/moves/v_box/Card2/body/main/description.text = "многа букав многа букав многа букав многа букав многа букав многа букав многа букав многа букав многа букав многа букав"
-	$VBoxContainer/main/TabContainer/moves/v_box/Card3/body/main/description.text = "средне букав средне букав средне букав средне букав средне букав средне букав"
+
+
+func _on_resized() -> void:
+	var w_size_y = get_window().size.y
+	if w_size_y >= 1080:
+		theme.set_font_size("font_size", "Label", 24)
+	else:
+		theme.set_font_size("font_size", "Label", 22)
+
 
 func set_up(character : Dictionary):
-	var mod = 0
-	var add_mod = 0
+	set_up_main_block(character)
+	set_up_stats(character)
+	set_up_cards(character)
+	set_up_magic(character)
+
+
+func set_up_main_block(character : Dictionary):
 	$VBoxContainer/header/PanelContainer/main_block/header/name.text = character["name"]
 	$VBoxContainer/header/PanelContainer/main_block/main/hp_box/hp.max_value = character["max_hp"]
-	$VBoxContainer/header/PanelContainer/main_block/main/hp_box/hp.value = character["max_hp"]
+	$VBoxContainer/header/PanelContainer/main_block/main/hp_box/hp.value = character.get_or_add("hp_value", character["max_hp"])
+	$VBoxContainer/header/PanelContainer/main_block/main/temp_hp_box/temp_hp.value = character.get_or_add("temp_hp", 0.)
 	$VBoxContainer/header/PanelContainer/main_block/main/cd_box/cd.value = character["cd"]
 
+
+func set_up_stats(character : Dictionary):
+	var mod = 0
+	var add_mod = 0
 	add_stats_template = all_stats_zero.duplicate()
 	for add_stat in character["add_stats"].keys():
 		add_stats_template[add_stat] += character["add_stats"][add_stat]
@@ -63,30 +77,18 @@ func set_up(character : Dictionary):
 			add_mod = mod + int(add_stats_template[additional_stat])
 			get_node(path + "additional/" + additional_stat + "/mod").text = ("+" if add_mod > 0 else "") + str(add_mod)
 
+
+func set_up_cards(character : Dictionary):
 	for child in $VBoxContainer/main/TabContainer/moves/v_box.get_children():
 		child.queue_free()
-	$VBoxContainer/main/TabContainer/moves/v_box.add_child(Control.new())
-	for weapon in character["skills"]["weapons"].keys():
-		var skill = load("res://scenes/character_list/skill_bloks/weapon_skill_block.tscn").instantiate()
-		skill.set_up(
-			weapon,
-			character["skills"]["weapons"][weapon]
-		)
-		$VBoxContainer/main/TabContainer/moves/v_box.add_child(skill)
-	$VBoxContainer/main/TabContainer/moves/v_box.add_child(Control.new())
+	$VBoxContainer/main/TabContainer/moves/v_box.add_child(Control.new()) #filler
+	for card_data in character["cards"]:
+		var card = load("res://scenes/entities/card_on_list.tscn").instantiate()
+		card.set_up(card_data)
+		$VBoxContainer/main/TabContainer/moves/v_box.add_child(card)
 
-	for text in character["skills"]["texts"].keys():
-		var skill = load("res://scenes/character_list/skill_bloks/text_skill_block.tscn").instantiate()
-		skill.set_up(
-			text,
-			character["skills"]["texts"][text]["description"],
-			character["skills"]["texts"][text]["cost"] if "cost" in character["skills"]["texts"][text].keys() else -2,
-			character["skills"]["texts"][text]["count"] if "count" in character["skills"]["texts"][text].keys() else 0,
-		)
-		$VBoxContainer/main/TabContainer/moves/v_box.add_child(skill)
 
-	$VBoxContainer/main/TabContainer/moves/v_box.add_child(Control.new())
-
+func set_up_magic(character : Dictionary):
 	for child in $VBoxContainer/main/TabContainer/spells/v_box.get_children():
 		child.queue_free()
 	for spells_lvl in character["skills"]["magic"].keys():
@@ -98,11 +100,3 @@ func set_up(character : Dictionary):
 			int((character["main_stats"][character["mag_stat"]] - 10) / 2)
 		)
 		$VBoxContainer/main/TabContainer/spells/v_box.add_child(skill)
-
-
-func _on_resized() -> void:
-	var w_size_y = get_window().size.y
-	if w_size_y >= 1080:
-		theme.set_font_size("font_size", "Label", 24)
-	else:
-		theme.set_font_size("font_size", "Label", 22)

@@ -20,36 +20,25 @@ func _on_update_btn_pressed() -> void:
 	for player in Server.players:
 		var el = Button.new()
 		el.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		el.text = player["name"] if "name" in player.keys() else str(player["id"])
+		el.text = player["character"]["name"] if "character" in player.keys() else str(player["id"])
 		$main/players_selection.add_child(el)
 		el.connect("pressed", Callable(self, "select").bind(player["id"]))
 
 
 func select(id : int) -> void:
-	var player = find_player_by_id(id)
-	if player:
+	var character = find_character_by_player_id(id)
+	if character:
 		clean_player_selection()
-		$main/character_list.set_up(find_char_by_name(player["name"]))
-		if "hp" in player.keys():
-			$main/character_list/VBoxContainer/header/PanelContainer/main_block/main/hp_box/hp.value = player["hp"]
-		if "temp_hp" in player.keys():
-			$main/character_list/VBoxContainer/header/PanelContainer/main_block/main/time_hp_box/hp.value = player["temp_hp"]
+		$main/character_list.set_up(character)
+
 		$main/character_list.show()
 		$main/players_selection.hide()
-		return
 
 
-func find_char_by_name(char_name : String):
-	for character in G.characters:
-		if character["name"] == char_name:
-			return character
-	return 0
-
-
-func find_player_by_id(id : int):
+func find_character_by_player_id(id : int):
 	for player in Server.players:
-		if player["id"] == id and "name" in player.keys():
-			return player
+		if player["id"] == id and "character" in player.keys():
+			return player["character"]
 	return 0
 
 

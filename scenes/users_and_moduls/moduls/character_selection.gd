@@ -1,7 +1,7 @@
 extends Control
 
 
-func _ready() -> void:
+func add_chars() -> void:
 	for i in len(G.characters):
 		var el = Button.new()
 		el.text = G.characters[i]["name"]

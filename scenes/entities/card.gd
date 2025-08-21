@@ -1,50 +1,30 @@
 extends PanelContainer
 
-var is_dragging : bool = false
-var dragging_offset = Vector2.ZERO
-
-var holder : Control
-var canvas : CanvasLayer
-var base_parent : Node
-
-func _on_name_button_down() -> void:
-	canvas = CanvasLayer.new()
-	base_parent = get_parent()
-	holder = Control.new()
-	holder.custom_minimum_size.y = size.y
-
-	add_sibling(canvas)
-	add_sibling(holder)
-	reparent(canvas)
-
-	is_dragging = true
-	dragging_offset = global_position - get_global_mouse_position()
+@export var data : Dictionary
 
 
-func _process(delta: float) -> void:
-	if is_dragging:
-		position.y = (get_global_mouse_position() + dragging_offset).y
+func set_up(card_data : Dictionary) -> void:
+	data = card_data
 
-		var node_under_dragging = find_index_by_y(global_position.y - 10, base_parent)
-		if node_under_dragging:
-			base_parent.move_child(holder, node_under_dragging)
-
-
-func _input(event: InputEvent) -> void:
-	if is_dragging:
-		if event is InputEventMouseButton and !event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			var node_under_dragging = find_index_by_y(global_position.y - 10, base_parent)
-			reparent(base_parent)
-			base_parent.move_child(self, node_under_dragging)
-			holder.queue_free()
-			canvas.queue_free()
-			is_dragging = false
+	$body/header/name.text = data.get("name","nameless")
+	set_up_optional("description", $body/main/description)
+	set_up_optional("actions", $body/header/actions)
+	set_up_optional("count", $body/header/counter, "counter")
+	if "attack" in data:
+		$body/main/attack/dmg.text = data["attack"].get("dmg","XкXX + X")
+		$body/main/attack/mod.text = data["attack"].get("mod","+X")
+		$body/main/attack.show()
 
 
-func find_index_by_y(y, box):
-	for node in box.get_children():
-		if node.get_class() == "PanelContainer" or node == holder:
-			if node.global_position.y > y:
-				return node.get_index()
-	return box.get_child_count() - 1
-	
+func set_up_optional(data_key : String, node : Node, type := "text"):
+	if data_key in data:
+		if type == "text":
+			node.text = data[data_key]
+		elif type == "counter":
+			node.max_value = data[data_key]
+			node.value = data.get_or_add("count_value", node.max_value)
+		node.show()
+
+
+func _on_counter_value_changed(value: float) -> void:
+	data["count_value"] = value

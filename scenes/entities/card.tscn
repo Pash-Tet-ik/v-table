@@ -54,10 +54,11 @@ autowrap_mode = 2
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("3_yjvqb")
 alignment = 1
 
-[node name="cost" type="Label" parent="body/header"]
+[node name="actions" type="Label" parent="body/header"]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -110,8 +111,9 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="description" type="Label" parent="body/main"]
+visible = false
 layout_mode = 2
 text = "описание"
 autowrap_mode = 3
 
-[connection signal="button_down" from="body/header/name" to="." method="_on_name_button_down"]
+[connection signal="value_changed" from="body/header/counter" to="." method="_on_counter_value_changed"]
