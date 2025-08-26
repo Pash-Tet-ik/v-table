@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccnukr138gmqu"]
+[gd_scene load_steps=3 format=3 uid="uid://ccnukr138gmqu"]
 
 [ext_resource type="Script" uid="uid://b5ebvxl3nqwru" path="res://scenes/rualette_set.gd" id="1_red7y"]
-[ext_resource type="Script" uid="uid://h8adumht5fq8" path="res://scenes/body.gd" id="2_bn58p"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_red7y"]
 properties/0/path = NodePath(".:position")
@@ -49,7 +48,6 @@ text = "×"
 
 [node name="body" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-script = ExtResource("2_bn58p")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_red7y")

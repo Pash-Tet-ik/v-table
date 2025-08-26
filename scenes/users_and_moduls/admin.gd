@@ -1,6 +1,5 @@
 extends "res://scenes/users_and_moduls/user.gd"
 
-var characters = []
 
 func _ready() -> void:
 	super._ready()

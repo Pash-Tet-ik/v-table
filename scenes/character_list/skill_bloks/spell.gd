@@ -22,4 +22,4 @@ func _on_name_pressed() -> void:
 		lvl,
 		mag_mod
 	)
-	G.user.find_child("ui").find_child("info_box").add_child(spell_description)
+	G.user.get_node("ui/info_box").add_child(spell_description)

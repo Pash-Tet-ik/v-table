@@ -1,6 +1,7 @@
 extends Node
 
 var players = []
+var cards = []
 
 
 func add_player(id: int) -> void :

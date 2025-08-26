@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _process(delta):
 	if is_dragging:
-		rpc("sync_position", get_global_mouse_position() + dragging_offset)
+		sync_position.rpc(get_global_mouse_position() + dragging_offset)
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -27,7 +27,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			G.smth_is_pick = true
 		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 			if multiplayer.is_server():
-				rpc("delite")
+				delite.rpc()
 
 
 func _input(event: InputEvent) -> void:

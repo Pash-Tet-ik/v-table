@@ -42,6 +42,7 @@ func _on_close_pressed() -> void:
 func sync_position(pos: Vector2):
 	global_position = pos
 
+
 @rpc("any_peer", "call_local")
 func delite():
 	if multiplayer.is_server():

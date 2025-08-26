@@ -8,7 +8,23 @@ var dragging_offset = Vector2.ZERO
 
 func _process(delta):
 	if is_dragging:
-		rpc("sync_position", get_global_mouse_position() + dragging_offset)
+		sync_position.rpc(get_global_mouse_position() + dragging_offset)
+
+
+func set_up(selected_dises : Array, user_name := "", user_color := "#FFFFFF"):
+	$VBoxContainer/header/header.text = user_name
+	$VBoxContainer/header/header.add_theme_color_override("font_color", Color(user_color))
+	$VBoxContainer/header/header.add_theme_color_override("font_hover_pressed_color", Color(user_color))
+	$VBoxContainer/header/header.add_theme_color_override("font_hover_color", Color(user_color))
+	$VBoxContainer/header/header.add_theme_color_override("font_pressed_color", Color(user_color))
+	set_up_roulettes(selected_dises)
+
+
+func set_up_roulettes(selected_dises : Array):
+	for i in range(len(selected_dises)):
+		var roulette = load("res://scenes/roulette.tscn").instantiate()
+		roulette.set_up(selected_dises[i], 50, 2.2 + randf_range(-1, 1))
+		$VBoxContainer/body.add_child(roulette, true)
 
 
 @rpc("any_peer", "call_local")
@@ -16,17 +32,8 @@ func sync_position(pos: Vector2):
 	global_position = pos
 
 
-func set_up(selected_dises, ids, user_name = "", user_color = "#FFFFFF"):
-	$VBoxContainer/header/header.text = user_name
-	$VBoxContainer/header/header.add_theme_color_override("font_color", Color(user_color))
-	$VBoxContainer/header/header.add_theme_color_override("font_hover_pressed_color", Color(user_color))
-	$VBoxContainer/header/header.add_theme_color_override("font_hover_color", Color(user_color))
-	$VBoxContainer/header/header.add_theme_color_override("font_pressed_color", Color(user_color))
-	$VBoxContainer/body.set_up(selected_dises, ids)
-
-
 func _on_button_pressed() -> void:
-	rpc("delite")
+	delite.rpc()
 
 
 @rpc("any_peer", "call_local")

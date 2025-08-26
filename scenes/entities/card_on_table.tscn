@@ -1,5 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4a1ep715dv1e"]
+[gd_scene load_steps=4 format=3 uid="uid://b4a1ep715dv1e"]
 
 [ext_resource type="PackedScene" uid="uid://cubce3ew4fe51" path="res://scenes/entities/card.tscn" id="1_vv3u4"]
+[ext_resource type="Script" uid="uid://cmvpeq002fr2x" path="res://scenes/entities/card_on_table.gd" id="2_6wwpf"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_d3onp"]
+properties/0/path = NodePath("body/header/counter:value")
+properties/0/spawn = false
+properties/0/replication_mode = 2
+properties/1/path = NodePath(".:data")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/replication_mode = 0
 
 [node name="Card" instance=ExtResource("1_vv3u4")]
+z_index = 1
+script = ExtResource("2_6wwpf")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="1"]
+replication_config = SubResource("SceneReplicationConfig_d3onp")
+
+[connection signal="button_down" from="body/header/name" to="." method="_on_name_button_down"]
+[connection signal="button_up" from="body/header/name" to="." method="_on_name_button_up"]
